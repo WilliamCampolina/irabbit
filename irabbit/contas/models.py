@@ -13,7 +13,7 @@ class TipoConta(models.Model):
 
 class Conta(models.Model):
     tipo = models.ForeignKey(TipoConta, on_delete=models.CASCADE)
-    valor = models.DecimalField('Valor',max_digits=9, decimal_places=2)
+    valor = models.DecimalField('Valor', max_digits=9, decimal_places=2)
     descricao = models.TextField('Descricao')
     data = models.DateTimeField(auto_now_add=True, blank=True)
 

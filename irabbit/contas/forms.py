@@ -1,5 +1,5 @@
 from django import forms
-from .models import Conta, TipoConta
+from .models import Conta
 
 
 class ContaForm(forms.ModelForm):

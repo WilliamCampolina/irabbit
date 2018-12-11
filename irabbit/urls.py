@@ -20,5 +20,8 @@ urlpatterns = [
     path('', include('irabbit.core.urls')),
     path('contas/', include('irabbit.contas.urls')),
     path('usuarios/', include('irabbit.usuarios.urls')),
+    path('produto/', include('irabbit.produto.urls')),
+    path('item/', include('irabbit.item.urls')),
+    path('pedido/', include('irabbit.pedido.urls')),
     path('admin/', admin.site.urls),
 ]

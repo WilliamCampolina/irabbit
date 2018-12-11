@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} Produto  {% endblock title %}
+
+{% block titlePage %} Produto  {% endblock titlePage %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"></h4>
+                            <a href="{% url 'produto.cadastro'%}">
+                                    <button type="button" class="btn btn-primary"><i class="fa fa-check"></i> Novo</button>
+                                </a>
+                            <br> <br>
+                                <div class="table-responsive">
+                                    <table class="table color-table primary-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Cód.</th>
+                                                <th>Produto</th>
+                                                <th>Valor</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        {% for produto in produtos %}
+                                             <tr>
+                                                <td> {{produto.codigo}} </td>
+                                                <td>{{produto.nome}}</td>
+                                                <td>{{produto.valor}}</td>
+                                                <td><a href="{%  url 'produto.atualizar' produto.id %}">Editar</a></td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

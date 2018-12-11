@@ -1,4 +1,5 @@
 {% load static  %}
+<li class="nav-small-cap">HOME</li>
 <li>
     <a href="{% url 'home' %}" aria-expanded="false">
         <i class="fa fa-circle"></i>
@@ -7,6 +8,33 @@
         </span>
     </a>
 </li>
+<li class="nav-small-cap">CADASTRO</li>
+<li>
+    <a href="{% url 'produto.index' %}" aria-expanded="false">
+        <i class="fa fa-circle"></i>
+        <span class="hide-menu">
+            Produto
+        </span>
+    </a>
+</li>
+<li>
+    <a href="{% url 'item.index' %}" aria-expanded="false">
+        <i class="fa fa-circle"></i>
+        <span class="hide-menu">
+            Items Produto
+        </span>
+    </a>
+</li>
+<li class="nav-small-cap">Pedidos</li>
+<li>
+    <a href="{% url 'pedido.index' %}" aria-expanded="false">
+        <i class="fa fa-circle"></i>
+        <span class="hide-menu">
+            Ver
+        </span>
+    </a>
+</li>
+<li class="nav-small-cap">OUTROS</li>
 <li>
     <a href="{% url 'list' %}" aria-expanded="false">
         <i class="fa fa-circle"></i>

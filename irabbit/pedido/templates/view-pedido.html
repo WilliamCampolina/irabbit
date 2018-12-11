@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %} Pedido  {% endblock title %}
+
+{% block titlePage %} Pedido  {% endblock titlePage %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"></h4>
+                                <div class="table-responsive">
+                                    <table class="table color-table primary-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Cód.</th>
+                                                <th>Produto</th>
+                                                <th>Valor</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        {% for pedido in pedidos %}
+                                             <tr>
+                                                <td> {{pedido.numero_pedido}} </td>
+
+                                                 <td>
+                                                     {% for produto in produtos %}
+                                                          <li>{{  produto.nome }} sad</li>
+                                                     {% endfor %}
+
+                                                 </td>
+                                                 <td>
+                                                     {{pedido.acrescimos}}
+                                                 </td>
+
+                                                <td>{{pedido.meio_pagamento}}</td>
+                                                <td>{{pedido.endereco}}</td>
+                                                <td><a href="">Editar</a></td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

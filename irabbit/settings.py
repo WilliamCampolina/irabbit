@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'global_permissions',
     'irabbit.core',
     'irabbit.contas',
-    'irabbit.usuarios'
+    'irabbit.usuarios',
+    'irabbit.produto',
+    'irabbit.item',
+    'irabbit.pedido'
 ]
 
 MIDDLEWARE = [
