@@ -1,0 +1,87 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block title %} Contas  {% endblock title %}
+
+{% block titlePage %} Contas  {% endblock titlePage %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Contas Cadastradas</h4>
+                                <div class="table-responsive">
+                                    <table class="table color-table primary-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Conta</th>
+                                                <th>Valor</th>
+                                                <th>Tipo</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        {% for conta in contas %}
+                                             <tr>
+                                                <td> {{conta.descricao}} </td>
+                                                <td>{{conta.valor}}</td>
+                                                <td>{{conta.tipo.descricao}}</td>
+                                                <td><a href="{% url 'atualizar' conta.id %}">Editar</a></td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Tipo de Contas</h4>
+                                <div class="table-responsive">
+                                    <table class="table color-table primary-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Descrição</th>
+                                                <th>Débito/Crédito</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        {%  for tipo in tipoContas  %}
+                                             <tr>
+                                                <td> {{tipo.descricao}} </td>
+                                                <td>{{tipo.deb_cred}} </td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+</div>
+<div class="row">
+    <a href="{% url 'cadastro'%}">
+        <button type="button" class="btn btn-primary"><i class="fa fa-check"></i> Novo</button>
+    </a>
+</div>
+
+
+
+
+
+
+
+{% endblock content %}
+
+

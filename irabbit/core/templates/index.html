@@ -1,0 +1,25 @@
+{% load static  %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Minha página de teste</title>
+    <link href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href = "{% static 'css/style.css'%}" rel="stylesheet">
+    <link href = "{% static 'css/colors/blue.css'%}" id="theme" rel="stylesheet">
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  </head>
+  <body>
+    <div class="content">
+
+        <legend>Landing Page</legend>
+         <a href="{% url 'login'%}">
+        <button type="button" class="btn btn-primary"><i class="fa fa-check"></i> Login</button>
+    </a>
+    </div>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,36 @@
+
+
+
+
+{% extends 'base.html' %}
+
+{% block title %} Contas  {% endblock title %}
+
+{% block titlePage %} Contas  {% endblock titlePage %}
+
+{% block content %}
+
+<div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <!-- Column -->
+                                    <div class="col-lg-12 col-md-12">
+                                        <h4 class="card-title">Mensagem de confirmação</h4>
+                                        <div class="alert alert-danger">Vc tem certeza q quer deletar a conta {{ conta.descricao }} ? </div>
+                                     </div>
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Deletar</button>
+                                    </form>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+{% endblock content %}
