@@ -9,7 +9,7 @@ def index(request):
     pedidos = Pedido.objects.all()
 
     for pedido in pedidos:
-        print(pedido.produtos.none)
+        print(pedido.produtos)
 
     # for produto in pedidos.produtos.all():
     #      print(produto.nome)
