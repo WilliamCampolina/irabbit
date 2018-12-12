@@ -5,13 +5,22 @@ from irabbit.pedido.models import Pedido
 
 
 def index(request):
-    #pedidos = Pedido.objects.prefetch_related('produtos__pedido_set').all()
-    pedidos = Pedido.objects.all()
 
-    for pedido in pedidos:
-        print(pedido.produtos)
-
-    # for produto in pedidos.produtos.all():
-    #      print(produto.nome)
-
+    #pedidos = Pedido.objects.all()
+    pedidos = Pedido.objects.prefetch_related('produtos').prefetch_related('acrescimos').all()
     return render(request, 'view-pedido.html', {'pedidos': pedidos})
+
+
+    # for pedido in pedidos:
+    #     produtos = pedido.produtos.all()
+    #
+    #     for produto in produtos:
+    #         print(produto.nome)
+    #         print(pedido.numero_pedido, produto)
+
+
+    # t1, t2 = list(Pedido.objects.all())
+    # produtos = t1.produtos.all()
+    #
+    # for produto in produtos:
+    #      print(produto.nome)
