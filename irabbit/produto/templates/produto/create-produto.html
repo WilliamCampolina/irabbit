@@ -55,7 +55,7 @@
                                         <a href="{% url 'produto.index'%}">
                                             <button type="button" class="btn btn-info"><i class="fa fa-backward"></i> Voltar</button>
                                         </a>
-                                        {% if pedido %}
+                                        {% if produto %}
                                             <a href="{% url 'produto.apagar' produto.id %}">
                                                 <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Apagar</button>
                                             </a>
