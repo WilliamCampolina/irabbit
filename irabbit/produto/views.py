@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from irabbit.produto.forms import ProdutoForm
 
@@ -9,6 +10,11 @@ from irabbit.produto.models import Produto
 
 def index(request):
     produtos = Produto.objects.all()
+
+    paginator = Paginator(produtos, 2)
+    page = request.GET.get('page')
+    produtos = paginator.get_page(page)
+
     return render(request, 'produto/view-produto.html', {'produtos': produtos})
 
 def cadastro(request):

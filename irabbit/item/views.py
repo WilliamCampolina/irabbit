@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator
 
 # Create your views here.
 from irabbit.item.forms import ItemForm
@@ -7,6 +8,11 @@ from irabbit.item.models import Item
 
 def index(request):
     itens = Item.objects.all()
+
+    paginator = Paginator(itens, 5)
+    page = request.GET.get('page')
+    itens = paginator.get_page(page)
+
     return render(request, 'view-acrescimo.html', {'itens': itens})
 
 def cadastro(request):
