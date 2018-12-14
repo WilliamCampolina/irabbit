@@ -1,12 +1,9 @@
 
-
-
-
 {% extends 'base.html' %}
 
-{% block title %} Deletar Item  {% endblock title %}
+{% block title %} Deletar Pedido  {% endblock title %}
 
-{% block titlePage %} Apagar Item  {% endblock titlePage %}
+{% block titlePage %} Apagar Pedido {% endblock titlePage %}
 
 {% block content %}
 
@@ -18,7 +15,7 @@
                                     <!-- Column -->
                                     <div class="col-lg-12 col-md-12">
                                         <h4 class="card-title">Mensagem de confirmação</h4>
-                                        <div class="alert alert-danger">Vc tem certeza q quer deletar o item {{ item.nome}} ? </div>
+                                        <div class="alert alert-danger">Vc tem certeza q quer deletar o Pedido {{ pedido.numero_pedido}} ? </div>
                                      </div>
                                     <form method="post">
                                         {% csrf_token %}

@@ -1,14 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 
 # Create your views here.
+from irabbit.pedido.forms import pedidoForm
 from irabbit.pedido.models import Pedido
 
 
 def index(request):
 
     pedidos = Pedido.objects.all().order_by('-id')
-    paginator = Paginator(pedidos,2)
+    paginator = Paginator(pedidos, 5)
     page = request.GET.get('page')
 
     pedidos = paginator.get_page(page)
@@ -29,3 +30,33 @@ def index(request):
     #
     # for produto in produtos:
     #      print(produto.nome)
+
+def cadastro(request):
+    form = pedidoForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('pedido.index')
+
+    return render(request, 'create-pedido.html', {'form': form})
+
+def atualizar(request, id):
+    pedido = Pedido.objects.get(id=id)
+    form = pedidoForm(request.POST or None, instance=pedido)
+
+    if form.is_valid():
+        form.save()
+        return redirect('pedido.index')
+
+    return render(request, 'create-pedido.html', {'form': form, 'pedido': pedido})
+
+
+def apagar(request, id):
+    pedido = Pedido.objects.get(id=id)
+    form = pedidoForm(request.POST or None, instance=pedido)
+
+    if request.method == 'POST':
+        pedido.delete()
+        return redirect('pedido.index')
+
+    return render(request, 'delete-pedido.html', {'form': form, 'pedido': pedido})

@@ -15,6 +15,7 @@ def index(request):
 
     return render(request, 'view-acrescimo.html', {'itens': itens})
 
+
 def cadastro(request):
     form = ItemForm(request.POST or None)
 
@@ -23,6 +24,7 @@ def cadastro(request):
         return redirect('item.index')
 
     return render(request, 'create-acrescimo.html', {'form': form})
+
 
 def atualizar(request, id):
     item = Item.objects.get(id=id)
@@ -33,6 +35,7 @@ def atualizar(request, id):
         return redirect('item.index')
 
     return render(request, 'create-acrescimo.html', {'form': form, 'item': item})
+
 
 def apagar(request, id):
     item = Item.objects.get(id=id)

@@ -6,7 +6,7 @@ from irabbit.produto.models import Produto, Item
 
 class Pedido(models.Model):
     produtos = models.ManyToManyField(Produto)
-    acrescimos = models.ManyToManyField(Item)
+    acrescimos = models.ManyToManyField(Item, blank=True)
     numero_pedido = models.IntegerField(default=0)
     endereco = models.CharField('Endereço', max_length=255)
     referencia = models.CharField('Referência',max_length=255, default='')

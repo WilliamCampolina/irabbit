@@ -6,16 +6,15 @@ from irabbit.produto.forms import ProdutoForm
 from irabbit.produto.models import Produto
 
 
-
-
 def index(request):
     produtos = Produto.objects.all()
 
-    paginator = Paginator(produtos, 2)
+    paginator = Paginator(produtos, 5)
     page = request.GET.get('page')
     produtos = paginator.get_page(page)
 
     return render(request, 'produto/view-produto.html', {'produtos': produtos})
+
 
 def cadastro(request):
     form = ProdutoForm(request.POST or None)
@@ -26,6 +25,7 @@ def cadastro(request):
 
     return render(request, 'produto/create-produto.html', {'form': form})
 
+
 def atualizar(request, id):
     produto = Produto.objects.get(id=id)
     form = ProdutoForm(request.POST or None, instance=produto)
@@ -35,6 +35,7 @@ def atualizar(request, id):
         return redirect('produto.index')
 
     return render(request, 'produto/create-produto.html', {'form': form, 'produto': produto})
+
 
 def apagar(request, id):
     produto = Produto.objects.get(id=id)

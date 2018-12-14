@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block title %} Criar Pedido  {% endblock title %}
+
+{% block titlePage %} Criar um Novo Pedido  {% endblock titlePage %}
+
+{% block content %}
+
+
+
+
+    {% load myfilters %}
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-outline-inverse">
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Formulário Produto</h4>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST" >
+                                    {% csrf_token %}
+                                    <div class="floating-labels m-t-10">
+                                        <div class="row">
+                                           <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{form.numero_pedido.label}}</label>
+                                                    {{ form.numero_pedido | addclass:'form-control p-0' }}
+                                                    {{form.numero_pedido.errors}}
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{form.valor_taxa_entrega.label}}</label>
+                                                    {{ form.valor_taxa_entrega | addclass:'form-control p-0'}}
+                                                    {{form.valor_taxa_entrega.errors}}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{form.meio_pagamento.label}}</label>
+                                                    {{ form.meio_pagamento | addclass:'form-control p-0'}}
+                                                    {{form.meio_pagamento.errors}}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{form.produtos.label}}</label>
+                                                    {{ form.produtos | addclass:'form-control p-0' }}
+                                                    {{form.produtos.errors}}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{form.acrescimos.label}}</label>
+                                                    {{ form.acrescimos | addclass:'form-control p-0'}}
+                                                    {{form.acrescimos.errors}}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{form.endereco.label}}</label>
+                                                    {{ form.endereco | addclass:'form-control p-0'}}
+                                                    {{form.endereco.errors}}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{form.referencia.label}}</label>
+                                                    {{ form.referencia | addclass:'form-control p-0'}}
+                                                    {{form.referencia.errors}}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{form.valor_pago.label}}</label>
+                                                    {{ form.valor_pago | addclass:'form-control p-0'}}
+                                                    {{form.valor_pago.errors}}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{form.valor_total.label}}</label>
+                                                    {{ form.valor_total | addclass:'form-control p-0'}}
+                                                    {{form.valor_total.errors}}
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check"></i> Salvar</button>
+                                        <a href="{% url 'pedido.index'%}">
+                                            <button type="button" class="btn btn-info"><i class="fa fa-backward"></i> Voltar</button>
+                                        </a>
+                                        {% if pedido %}
+                                            <a href="{% url 'pedido.apagar' pedido.id %}">
+                                                <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Apagar</button>
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+{% endblock content %}
